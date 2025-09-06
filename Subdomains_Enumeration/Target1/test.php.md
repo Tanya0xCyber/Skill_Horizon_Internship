@@ -1,10 +1,17 @@
 # Subdomain Enumeration - testphp.vulnweb.com
 
-**Project:** Skill Horizon  
-**Task:** Subdomain Enumeration  
-**Target:** testphp.vulnweb.com  
-**Date:** 06-Sep-2025  
-**Tools Used:** Subfinder, Assetfinder, AlterX
+This task is part of my Skill Horizon project, where I document my daily cybersecurity assignments.
+The goal of this assignment was to find and list all possible subdomains of the target domain testphp.vulnweb.com using three different tools and then filter which ones are live.
+
+Target: testphp.vulnweb.com
+Date: 06-Sep-2025
+Tools Used:
+
+* Subfinder → for collecting real subdomains
+
+* AlterX → for generating possible permutations of subdomains
+
+* Assetfinder → Finds additional subdomains
 
 ---
 
@@ -19,10 +26,13 @@ subfinder -d testphp.vulnweb.com -o subfinder.txt
 ```
 
 **Output File:**
-`subfinder.txt`
+[subfnder.txt](Subdomains_Enumeration/Target1/subfinder.txt)
 
 **Screenshot:**
-`screenshots/subfinder.png`
+<p align="center">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon/blob/main/Subdomains_Enumeration/Target1/screenshots/subfinder_target1.png" width="80%">
+</p>
+
 
 **Notes:**
 
@@ -43,10 +53,13 @@ assetfinder --subs-only testphp.vulnweb.com > assetfinder.txt
 ```
 
 **Output File:**
-`assetfinder.txt`
+  [assetfinder.txt](Subdomains_Enumeration/Target1/assetfinder.txt)
 
 **Screenshot:**
-`screenshots/assetfinder.png`
+<p align="center">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon/blob/main/Subdomains_Enumeration/Target1/screenshots/assetfinder_target1.png" width="80%">
+</p>
+
 
 **Notes:**
 
@@ -67,10 +80,14 @@ cat subfinder.txt assetfinder.txt | alterx -p '{{sub}}-{{word}}.{{suffix}}' -o a
 ```
 
 **Output File:**
-`alterx_permutations.txt`
+[permutations.txt](Subdomains_Enumeration/Target1/permutations.txt)
+[live_subdomains.txt](Subdomains_Enumeration/Target1/live_subdomains.txt)
 
 **Screenshot:**
-`screenshots/alterx.png`
+<p align="center">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon/blob/main/Subdomains_Enumeration/Target1/screenshots/alterx_target1.png" width="80%">
+</p>
+
 
 **Notes:**
 
