@@ -1,0 +1,16 @@
+akamai-apigateway-charging-ownership-stage.tesla.com
+auth-global-stage.tesla.com
+auth-stage.tesla.com
+bettertime-stage.tesla.com
+diner-webapp-stage.tesla.com
+files-ownership-stage.tesla.com
+kronos-dev.tesla.com
+media-server-qr-dev.eng.america.vn.cloud.tesla.com
+mfa-stage.tesla.com
+mobile-links-cdn.eng.vn.cloud.tesla.com
+mobile-links-cdn.prd.vn.cloud.tesla.com
+shop-stage.tesla.com
+sso-dev-origin.tesla.com
+sso-dev.tesla.com
+static-assets-pay.tesla.com
+static-assets.tesla.com
