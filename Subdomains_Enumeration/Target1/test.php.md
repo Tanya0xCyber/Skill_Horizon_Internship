@@ -3,8 +3,8 @@
 This task is part of my Skill Horizon project, where I document my daily cybersecurity assignments.
 The goal of this assignment was to find and list all possible subdomains of the target domain testphp.vulnweb.com using three different tools and then filter which ones are live.
 
-Target: testphp.vulnweb.com
-Date: 06-Sep-2025
+Target: testphp.vulnweb.com <br>
+Date: 06-Sep-2025 <br>
 Tools Used:
 
 * Subfinder → for collecting real subdomains
@@ -26,7 +26,7 @@ subfinder -d testphp.vulnweb.com -o subfinder.txt
 ```
 
 **Output File:**
-[subfinder.txt](Subdomains_Enumeration/Target1/subfinder.txt)
+[subfinder.txt](https://github.com/Tanya0xCyber/Skill_Horizon/blob/main/Subdomains_Enumeration/Target1/subfinder.txt)
 
 **Screenshot:**
 <p align="center">
@@ -53,7 +53,7 @@ assetfinder --subs-only testphp.vulnweb.com > assetfinder.txt
 ```
 
 **Output File:**
-  [assetfinder.txt](Subdomains_Enumeration/Target1/assetfinder.txt)
+  [assetfinder.txt](https://github.com/Tanya0xCyber/Skill_Horizon/blob/main/Subdomains_Enumeration/Target1/assetfinder.txt)
 
 **Screenshot:**
 <p align="center">
@@ -80,8 +80,8 @@ cat subfinder.txt assetfinder.txt | alterx -p '{{sub}}-{{word}}.{{suffix}}' -o a
 ```
 
 **Output File:**
-[permutations.txt](Subdomains_Enumeration/Target1/permutations.txt)
-[live_subdomains.txt](Subdomains_Enumeration/Target1/live_subdomains.txt)
+[permutations.txt](https://github.com/Tanya0xCyber/Skill_Horizon/blob/main/Subdomains_Enumeration/Target1/permutations.txt) <br>
+[live_subdomains.txt](https://github.com/Tanya0xCyber/Skill_Horizon/blob/main/Subdomains_Enumeration/Target1/live_subdomains.txt)
 
 **Screenshot:**
 <p align="center">
