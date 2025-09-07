@@ -26,7 +26,7 @@ subfinder -d testphp.vulnweb.com -o subfinder.txt
 ```
 
 **Output File:**
-[subfnder.txt](Subdomains_Enumeration/Target1/subfinder.txt)
+[subfinder.txt](Subdomains_Enumeration/Target1/subfinder.txt)
 
 **Screenshot:**
 <p align="center">
