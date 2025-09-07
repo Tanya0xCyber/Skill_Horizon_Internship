@@ -18,7 +18,7 @@ Tools Used:
 ## 1. Subfinder
 
 **Purpose:**  
-Subfinder automatically finds **real subdomains** of a domain. Think of it as a detective looking for addresses that actually exist.
+Finds real, publicly available subdomains of the target.
 
 **Command Used:**  
 ```bash
@@ -44,7 +44,7 @@ subfinder -d testphp.vulnweb.com -o subfinder.txt
 ## 2. Assetfinder
 
 **Purpose:**
-Assetfinder finds **additional subdomains** using different sources than Subfinder. Think of it as another detective with a different notebook, adding more addresses that might be missed.
+Finds more subdomains using different sources for better coverage.
 
 **Command Used:**
 
@@ -71,7 +71,7 @@ assetfinder --subs-only testphp.vulnweb.com > assetfinder.txt
 ## 3. AlterX
 
 **Purpose:**
-AlterX generates **possible subdomain permutations** based on the existing subdomains. Example: if you found `blog.testphp.vulnweb.com`, AlterX may guess `blog-dev.testphp.vulnweb.com` or `blog-test.testphp.vulnweb.com`. Think of it as a creative friend imagining other possible addresses.
+AlterX generates possible permutations of discovered subdomains, and DNSX checks which of them are live.
 
 **Command Used:**
 
@@ -81,7 +81,12 @@ cat subfinder.txt assetfinder.txt | alterx -p '{{sub}}-{{word}}.{{suffix}}' -o a
 
 **Output File:**
 [permutations.txt](https://github.com/Tanya0xCyber/Skill_Horizon/blob/main/Subdomains_Enumeration/Target1/permutations.txt) <br>
+
 [live_subdomains.txt](https://github.com/Tanya0xCyber/Skill_Horizon/blob/main/Subdomains_Enumeration/Target1/live_subdomains.txt)
+
+** Verification (dnsx):**
+
+```cat alterx_permutations.txt | dnsx -o live_subdomains.txt```
 
 **Screenshot:**
 <p align="center">
@@ -91,16 +96,21 @@ cat subfinder.txt assetfinder.txt | alterx -p '{{sub}}-{{word}}.{{suffix}}' -o a
 
 **Notes:**
 
-* Creates new subdomain guesses.
-* Useful to discover subdomains that are not publicly listed but may exist.
+* AlterX guessed additional subdomains like blog-dev.testphp.vulnweb.com.
+* DNSX confirmed which guessed subdomains are actually active.
 
 ---
 
 ## 4. Summary
 
-* Subdomains collected using **3 different tools**: Subfinder, Assetfinder, AlterX.
-* Subfinder & Assetfinder → initial subdomains.
-* AlterX → additional guessed subdomains.
-* Total subdomains collected: Count lines from all files after removing duplicates.
-* Optional Next Step: You can check which subdomains are active/live using DNS checking tools.
+* Tools Used: Subfinder (real subdomains), Assetfinder (extra subdomains), AlterX (permutations), DNSX (live check).
 
+* Output:
+
+    * subfinder.txt + assetfinder.txt → initial list of subdomains.
+
+    * alterx_permutations.txt → generated permutations.
+
+    * live_subdomains.txt → final verified list of live subdomains.
+
+* Key Takeaway: Enumeration + permutation + validation = complete picture of the attack surface.
