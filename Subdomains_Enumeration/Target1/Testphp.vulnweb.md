@@ -3,7 +3,7 @@
 This task is part of my Skill Horizon project, where I document my daily cybersecurity assignments.
 The goal of this assignment was to find and list all possible subdomains of the target domain testphp.vulnweb.com using three different tools and then filter which ones are live.
 
-Target: testphp.vulnweb.com <br>
+Target: Testphp.vulnweb.com <br>
 Date: 06-Sep-2025 <br>
 Tools Used:
 
