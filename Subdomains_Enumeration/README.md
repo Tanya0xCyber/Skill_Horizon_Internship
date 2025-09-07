@@ -1,5 +1,10 @@
 # Subdomain Enumeration 
 
+This folder contains the work for the assignment:
+
+**Task:** Collect subdomains of any two targets using three different tools/scripts.
+
+
 This folder is all about finding **hidden subdomains** of target websites — a common first step in bug bounty and pentesting.  
 I used a mix of tools to collect subdomains, generate new ones, and check which ones are actually alive.
 
