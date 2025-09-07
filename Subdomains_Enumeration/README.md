@@ -12,8 +12,8 @@ I used a mix of tools to collect subdomains, generate new ones, and check which 
 
 ## What's Inside
 
-- **Target 1** → testphp.vulnweb.com (Practice target)
-- **Target 2** →  Hackerone.com (Practice target)
+- **Target 1** → testphp.vulnweb.com (Practice target)--- Tesphp.vulnweb.md
+- **Target 2** →  Hackerone.com (Practice target)--- Hackerone.md
 
 Each target folder has:
 - My commands & output files
