@@ -17,7 +17,7 @@ Passive-Footprinting-And-Recon/
 ├── 04.Metadata_Extraction.md
 ├── 05.Google_dorking.md
 ├── 06.Social_media_&_OSINT.md
-├── 
+├── 07.Collect_URLs_&_Filter_JS_File.md
 ├── outputs/               # Raw outputs of commands
 │   ├── whois.txt
 │   ├── dig.txt
@@ -106,13 +106,11 @@ site:yahoo.com intitle:index of
 ```
 **Explanation:** Searches for exposed files, directories, admin portals, and sensitive data indexed by Google.
 
-
 ---
 
-### 6.. Social Media & OSINT (Optional)
+### 6.. Social Media & OSINT 
 **Tools:** Maltego CE / SpiderFoot
 **Explanation:** Maps organization’s public presence (LinkedIn employees, Twitter accounts, GitHub repos).
-
 
 ---
 
@@ -120,7 +118,8 @@ site:yahoo.com intitle:index of
 **Commands:**
 ```bash
 gau yahoo.com > yahoo_urls.txt
-cat outputs/urls.txt | grep "\.js" > yahoo_jsfiles.txt
+cat yahoo_urls.txt | grep "\.js" > yahoo_jsfiles.txt
+jsleak yahoo_jsfiles.txt -o yahoo_jsleak.txt
 ```
 **Explanation:** Collects URLs from web archives and filters JavaScript files which might contain API endpoints or secrets.
 
