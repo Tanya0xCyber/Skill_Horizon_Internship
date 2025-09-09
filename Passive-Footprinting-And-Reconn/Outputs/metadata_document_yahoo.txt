@@ -1,0 +1,44 @@
+ExifTool Version Number         : 13.25
+File Name                       : flickr_amendment_gov_tos.docx
+Directory                       : .
+File Size                       : 155 kB
+File Modification Date/Time     : 2025:09:09 13:10:27-04:00
+File Access Date/Time           : 2025:09:09 13:10:27-04:00
+File Inode Change Date/Time     : 2025:09:09 13:13:11-04:00
+File Permissions                : -rw-rw-r--
+File Type                       : DOCX
+File Type Extension             : docx
+MIME Type                       : application/vnd.openxmlformats-officedocument.wordprocessingml.document
+Zip Required Version            : 20
+Zip Bit Flag                    : 0x0006
+Zip Compression                 : Deflated
+Zip Modify Date                 : 1980:01:01 00:00:00
+Zip CRC                         : 0xb5a7b17c
+Zip Compressed Size             : 447
+Zip Uncompressed Size           : 2127
+Zip File Name                   : [Content_Types].xml
+Preview Image                   : (Binary data 125984 bytes, use -b option to extract)
+Template                        : Normal.dotm
+Total Edit Time                 : 16 minutes
+Pages                           : 4
+Words                           : 1542
+Characters                      : 8791
+Application                     : Microsoft Macintosh Word
+Doc Security                    : None
+Lines                           : 73
+Paragraphs                      : 20
+Scale Crop                      : No
+Company                         : Yahoo!
+Links Up To Date                : No
+Characters With Spaces          : 10313
+Shared Doc                      : No
+Hyperlinks Changed              : No
+App Version                     : 14.0000
+Title                           : 
+Subject                         : 
+Creator                         : Moira Dawson
+Keywords                        : 
+Last Modified By                : Joanna Lowry
+Revision Number                 : 10
+Create Date                     : 2012:09:13 23:28:00Z
+Modify Date                     : 2012:09:16 18:50:00Z
