@@ -1,0 +1,56 @@
+
+; <<>> DiG 9.20.11-4+b1-Debian <<>> yahoo.com ANY @8.8.8.8
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 13690
+;; flags: qr rd ra; QUERY: 1, ANSWER: 37, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;yahoo.com.			IN	ANY
+
+;; ANSWER SECTION:
+yahoo.com.		1718	IN	SOA	ns1.yahoo.com. hostmaster.yahoo-inc.com. 2025090904 3600 300 1814400 600
+yahoo.com.		21518	IN	NS	ns3.yahoo.com.
+yahoo.com.		21518	IN	NS	ns2.yahoo.com.
+yahoo.com.		21518	IN	NS	ns5.yahoo.com.
+yahoo.com.		21518	IN	NS	ns4.yahoo.com.
+yahoo.com.		21518	IN	NS	ns1.yahoo.com.
+yahoo.com.		1718	IN	TXT	"google-site-verification=2b0Glh8l2icXIAgAcjOcFx16Jt26yWDgEyrk5hPD-ZY"
+yahoo.com.		1718	IN	TXT	"facebook-domain-verification=gysqrcd69g0ej34f4jfn0huivkym1p"
+yahoo.com.		1718	IN	TXT	"google-site-verification=w4N2bNopAWw1xYrdXKORILxx-WW3_LIiyX6dIMIidgk"
+yahoo.com.		1718	IN	TXT	"google-site-verification=GU8WAl0zPqaxdcZqDjuN7pqdfPCpR9Amz9rwxMG91qw"
+yahoo.com.		1718	IN	TXT	"google-site-verification=xoBvU6aKxP0gYgNL0iXqF0EccAg6nFrO7XxsHnc3iNQ"
+yahoo.com.		1718	IN	TXT	"v=spf1 redirect=_spf.mail.yahoo.com"
+yahoo.com.		1718	IN	TXT	"Zoom=13284637"
+yahoo.com.		1718	IN	TXT	"_globalsign-domain-verification=HOeO-_wfYsqBPIRhct0u92OioWzwfg5YahDu63Jvbg"
+yahoo.com.		1718	IN	TXT	"edb3bff2c0d64622a9b2250438277a59"
+yahoo.com.		1718	IN	TXT	"google-site-verification=GLp01gkFNopm_JItbLxml4iuVbTgJa3rKu0-eq1RvsE"
+yahoo.com.		1718	IN	TXT	"google-site-verification=2b8irRvU5a2h4Mb-H_fdqNrqWjS00qmPfPcWqm8BhxI"
+yahoo.com.		1718	IN	TXT	"google-site-verification=Z3-Vh6zqUMgybVH4wQl1GxKSKN7JE13kyCyeZ3TZZ-I"
+yahoo.com.		1718	IN	MX	1 mta7.am0.yahoodns.net.
+yahoo.com.		1718	IN	MX	1 mta6.am0.yahoodns.net.
+yahoo.com.		1718	IN	MX	1 mta5.am0.yahoodns.net.
+yahoo.com.		1718	IN	AAAA	2001:4998:24:120d::1:1
+yahoo.com.		1718	IN	AAAA	2001:4998:24:120d::1:0
+yahoo.com.		1718	IN	AAAA	2001:4998:124:1507::f001
+yahoo.com.		1718	IN	AAAA	2001:4998:124:1507::f000
+yahoo.com.		1718	IN	AAAA	2001:4998:44:3507::8000
+yahoo.com.		1718	IN	AAAA	2001:4998:44:3507::8001
+yahoo.com.		1718	IN	A	74.6.231.21
+yahoo.com.		1718	IN	A	74.6.143.26
+yahoo.com.		1718	IN	A	74.6.231.20
+yahoo.com.		1718	IN	A	98.137.11.163
+yahoo.com.		1718	IN	A	98.137.11.164
+yahoo.com.		1718	IN	A	74.6.143.25
+yahoo.com.		1718	IN	CAA	0 issue "globalsign.com"
+yahoo.com.		1718	IN	CAA	0 iodef "mailto:security@yahooinc.com"
+yahoo.com.		1718	IN	CAA	0 issue "digicert.com"
+yahoo.com.		1718	IN	CAA	0 issue "sectigo.com"
+
+;; Query time: 28 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8) (TCP)
+;; WHEN: Tue Sep 09 07:48:57 EDT 2025
+;; MSG SIZE  rcvd: 1514
+
