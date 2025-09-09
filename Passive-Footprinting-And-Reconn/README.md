@@ -6,7 +6,6 @@ Learn how to gather **publicly available information** about a target without ac
 ---
 
 ## Folder & File Structure
-Organize your repository like this so anyone can follow easily:
 
 ```
 Passive-Footprinting-And-Recon/
@@ -75,7 +74,7 @@ amass enum -passive -d yahoo.com > amass_yahoo.txt
 
  ---
 
-### 3️3.. Email & Employee Information
+### 3️.. Email & Employee Information
 **Command:**
 ```bash
 theHarvester -d yahoo.com -b google,bing,linkdln > yahoo_emails.txt
@@ -86,7 +85,7 @@ theHarvester -d yahoo.com -b google,bing,linkdln > yahoo_emails.txt
 
 ---
 
-### 4️4.. Metadata Extraction
+### 4️.. Metadata Extraction
 **Commands:**
 ```bash
 
@@ -94,10 +93,8 @@ exiftool sample.pdf >> outputs/metadata.txt
 ```
 **Explanation:** Extracts metadata (author names, software versions) from public files which can reveal tech stack or internal usernames.
 
- Screenshot: `screenshots/04_metadata.png`
-
 ---
-### 5️5.. Google Dorking
+### 5️.. Google Dorking
 **Queries Tried:**
 ```
 site:yahoo.com filetype:pdf
@@ -114,7 +111,7 @@ site:yahoo.com intitle:index of
 
 ---
 
-### 7..7️URLs & JS Files
+### 7..URLs & JS Files
 **Commands:**
 ```bash
 gau yahoo.com > yahoo_urls.txt
@@ -126,7 +123,7 @@ jsleak yahoo_jsfiles.txt -o yahoo_jsleak.txt
 ---
 
 
-##**Conclusion: Possible Attack Surfaces Identified:**
+## **Conclusion: Possible Attack Surfaces Identified:**
 
 Passive reconnaissance of yahoo.com revealed:
 
