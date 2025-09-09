@@ -42,24 +42,96 @@ Passive-Footprinting-And-Recon/
 - `JSLeak` → Search secrets in JS files
 - `Maltego (CE)` / `SpiderFoot` → OSINT automation (optional)
 
+
+
 ---
 
-##  Steps Performed
+## 1️⃣ Domain & DNS Information
 
-### 1️.. Domain & DNS Information
-**Commands:**
+
+### **WHOIS**
+
+**Brief Overview:**
+This step collects fundamental domain and DNS information of the target. By gathering registrar details, DNS records, and IP addresses, we create a foundational understanding of how the domain is hosted, its mail setup, and its network footprint.
+
+**What it does :**
+Retrieves the domain registration details such as registrar, creation/expiry date, owner contact info, and name servers.**
+
+**Command 1:**
 ```bash
-whois yahoo.com > outputs/whois.txt
-dig yahoo.com ANY +noall +answer > outputs/dig.txt
-nslookup yahoo.com > outputs/nslookup.txt
+whois yahoo.com > whois.txt
 ```
-**Explanation:** Collects domain registrar, name servers, IP address, and DNS records. This gives a basic map of how the target is hosted.
 
- Screenshot: `screenshots/01_domaininfo.png`
+**Output file:**
+[whois.txt](https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Passive-Footprinting-And-Reconn/Outputs/whois.txt)– contains all the WHOIS information for `yahoo.com`.
+
+**Screenshot:**
+<p align="center">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Passive-Footprinting-And-Reconn/Screenshots/whois.png" width="80%">
+</p>
+
+**Notes**
+ * Domain registered by Yahoo Assets LLC (US) using MarkMonitor.
+ * First registered on 1995-01-18, last updated on 2024-12-18.
+ * Domain security protections are enabled (transfer/update/delete prohibited).
+ * DNS hosted on ns1-5.yahoo.com.
+ * DNSSEC not enabled, which could be considered a small security gap.
+---
+
+### **DIG**
+
+**What it does :**
+Queries the DNS records of `yahoo.com`, including A, MX, NS, TXT, and other records. Gives a snapshot of how the domain is configured.
+
+**Command 2:**
+```bash
+dig yahoo.com ANY @8.8.8.8 > dig.txt
+```
+
+**Output file:**
+[dig.txt](https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Passive-Footprinting-And-Reconn/Outputs/dig.txt) – contains summarized DNS records.
+
+**Screenshot:**
+<p align="center">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Passive-Footprinting-And-Reconn/Screenshots/dig.png" width="80%">
+</p>
+
+**Notes**
+ * Yahoo has many name servers → means high reliability.
+ * We got IP addresses (A + AAAA records) → tells where yahoo.com is hosted.
+ * We found mail servers (MX) → shows how Yahoo handles email.
+ * TXT records → have security settings (SPF, Google/Facebook verification).
+ * CAA records → only certain companies can give SSL certificates (secure).
 
 ---
 
-### 2️.. Subdomain Enumeration
+### ** NSLOOKUP**
+
+**What it does :**
+Finds the IP address of the domain and the DNS server being used. Useful to verify how the domain resolves to an IP.
+
+**Command 3:**
+```bash
+nslookup yahoo.com > nslookup.txt
+```
+
+**Output file:**
+ [nslookup.txt](https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Passive-Footprinting-And-Reconn/Outputs/dig.txt)contains the IP address and DNS server info for `yahoo.com`.
+
+**Screenshot:**
+<p align="center">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Passive-Footprinting-And-Reconn/Screenshots/nslookup.png" width="80%">
+</p>
+
+**Notes:**
+ * Server: 192.168.153.2 → This is the DNS server your system asked for info.
+ * Non-authoritative answer: Data came from a cache, not directly from Yahoo’s main DNS.   
+   Addresses:
+     * IPv4: (74.6.231.21, 74.6.143.25, etc.) → These are Yahoo’s public IPs.
+     * IPv6: (2001:4998:...) → Same but for IPv6 network.
+---
+
+### 2.. Subdomain Enumeration
 **Commands:**
 ```bash
 subfinder -d yahoo.com -o outputs/final_subdomains.txt
