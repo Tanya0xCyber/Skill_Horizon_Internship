@@ -10,7 +10,14 @@ Organize your repository like this so anyone can follow easily:
 
 ```
 Passive-Footprinting-And-Recon/
-├── README.md              # Main Report for this target
+├── README.md         # Main Report for this target
+├── 01.Domain_Information_gathering.md
+├── 02.Subdomains_enumeration.md
+├── 03.Email_And_Emloyee_Info.md
+├── 04.Metadata_Extraction.md
+├── 05.Google_dorking.md
+├── 06.Social_media_&_OSINT.md
+├── 
 ├── outputs/               # Raw outputs of commands
 │   ├── whois.txt
 │   ├── dig.txt
@@ -20,14 +27,14 @@ Passive-Footprinting-And-Recon/
 │   ├── emails.txt
 │   ├── urls.txt
 │   ├── jsfiles.txt
-│   └── metadata.txt
+│   └── metadata.txt ....
 └── screenshots/           # Screenshots of each step
     ├── 01_domaininfo.png
     ├── 02_subs.png
     ├── 03_emails.png
     ├── 04_metadata.png
     ├── 05_dorking.png
-    └── 06_urls_js.png
+    └── 06_urls_js.png ....
 ```
 
 ---
@@ -46,35 +53,43 @@ Passive-Footprinting-And-Recon/
 
 ---
 
+##**Steps Performed:**
+
+## 1. Domain Information Gathering
+**Commands:**
+```bash
+whois yahoo.com > whois.txt
+dig yahoo.com  > dig.txt
+nslookup yahoo.com > nslookup.txt
+```
+Explanation: Collected domain registrar, DNS records, and IP addresses.
 
 ### 2.. Subdomain Enumeration
 **Commands:**
 ```bash
-subfinder -d yahoo.com -o outputs/final_subdomains.txt
-assetfinder yahoo.com >> outputs/final_subdomains.txt
-amass enum -passive -d yahoo.com >> outputs/final_subdomains.txt
+subfinder -d yahoo.com -o subfinder_yahoo.txt
+assetfinder yahoo.com > assetfinder_yahoo.txt
+amass enum -passive -d yahoo.com > amass_yahoo.txt
 ```
 **Explanation:** Lists publicly visible subdomains. These may reveal staging sites, APIs, or forgotten assets.
 
- Screenshot: `screenshots/02_subs.png`
+ ---
 
----
-
-### 3️.. Email & Employee Information
+### 3️3.. Email & Employee Information
 **Command:**
 ```bash
-theHarvester -d yahoo.com -b google > outputs/emails.txt
+theHarvester -d yahoo.com -b google,bing,linkdln > yahoo_emails.txt
 ```
 **Explanation:** Finds public email addresses and employee data that could be exploited in phishing or social engineering.
 
- Screenshot: `screenshots/03_emails.png`
+ 
 
 ---
 
-### 4️.. Metadata Extraction
+### 4️4.. Metadata Extraction
 **Commands:**
 ```bash
-metagoofil -d yahoo.com -t pdf,doc,xls,ppt -l 50 -n 10 -o ./outputs -f outputs/metadata.txt
+
 exiftool sample.pdf >> outputs/metadata.txt
 ```
 **Explanation:** Extracts metadata (author names, software versions) from public files which can reveal tech stack or internal usernames.
@@ -82,7 +97,7 @@ exiftool sample.pdf >> outputs/metadata.txt
  Screenshot: `screenshots/04_metadata.png`
 
 ---
-### 5️.. Google Dorking
+### 5️5.. Google Dorking
 **Queries Tried:**
 ```
 site:yahoo.com filetype:pdf
@@ -91,49 +106,36 @@ site:yahoo.com intitle:index of
 ```
 **Explanation:** Searches for exposed files, directories, admin portals, and sensitive data indexed by Google.
 
- Screenshot: `screenshots/05_dorking.png`
 
 ---
 
-### 6️.. URLs & JS Files
-**Commands:**
-```bash
-gau yahoo.com > outputs/urls.txt
-cat outputs/urls.txt | grep "\.js" > outputs/jsfiles.txt
-```
-**Explanation:** Collects URLs from web archives and filters JavaScript files which might contain API endpoints or secrets.
-
- Screenshot: `screenshots/06_urls_js.png`
-
----
-
-### 7️.. Social Media & OSINT (Optional)
+### 6.. Social Media & OSINT (Optional)
 **Tools:** Maltego CE / SpiderFoot
 **Explanation:** Maps organization’s public presence (LinkedIn employees, Twitter accounts, GitHub repos).
 
+
 ---
 
-### 8️..  Secret Search in JS (Optional)
-**Tool:** JSLeak
+### 7..7️URLs & JS Files
+**Commands:**
 ```bash
-jsleak -f outputs/jsfiles.txt -o outputs/jsleak.txt
+gau yahoo.com > yahoo_urls.txt
+cat outputs/urls.txt | grep "\.js" > yahoo_jsfiles.txt
 ```
-**Explanation:** Automatically searches JS files for API keys, tokens, or passwords.
+**Explanation:** Collects URLs from web archives and filters JavaScript files which might contain API endpoints or secrets.
 
 ---
 
-##  Summary
-This exercise shows how much information is available about a target without performing any hacking.
 
-- **Subdomains** may reveal staging servers
-- **Emails** could be used for phishing
-- **Metadata** reveals tech stack and users
-- **URLs & JS files** might expose API endpoints
-- **Google dorks** find hidden files or directories
+##**Conclusion: Possible Attack Surfaces Identified:**
 
-**Key Takeaway:** Passive recon is a safe, legal, and essential first step in VAPT — it helps attackers plan and defenders fix leaks.
+Passive reconnaissance of yahoo.com revealed:
+
+* Subdomains & URLs: Few active subdomains like 2013-en-imagenes.es.yahoo.com, admin.nevec.yahoo.com, admanager.yahoo.com — potential public-facing areas.
+* Domain & DNS Info: Multiple name servers (ns1-5.yahoo.com), IPv4/IPv6 addresses, MX and TXT/CAA records confirm hosting and security setup.
+* Emails / Employee Info: No public employee emails found; document metadata shows company authorship and software used, with no sensitive paths.
+* OSINT / Public Profiles: Minimal exposure with 4 LinkedIn profiles and 2 GitHub repos.
+
+Key Takeaway: Even with limited findings, passive recon highlights publicly visible assets while showing a strong security posture with minimal exposed sensitive data.
 
 ---
-
-## ⚠️ Responsible Disclosure
-Redact any sensitive information (like API keys, employee PII) before publishing results publicly.
