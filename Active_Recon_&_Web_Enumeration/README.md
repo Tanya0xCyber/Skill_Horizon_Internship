@@ -23,7 +23,8 @@ nmap -sn zero.webappsecurity.com
 **What it does :**
 Checks if the target is alive using ping/ARP (no port scan).
 
-**Result:** Host is alive.
+**Finding:**  Host is alive → Target is reachable (IP: 54.82.22.214).
+
 **Screenshot:**
 
 <p align="center">
@@ -41,6 +42,10 @@ nmap -sS zero.webappsecurity.com
 ```
 
 Finds open TCP ports quickly using SYN packets.
+
+**Key Findings:**
+   * Open Ports: 80 (HTTP), 443 (HTTPS), 8080 (HTTP-Proxy)
+
 **Screenshot:**
 
 <p align="center">
@@ -62,6 +67,11 @@ Detects services, versions, and runs default NSE scripts on 22, 80, 443.
   <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/service_version_scan.png" width="80%">
 </p>
 
+**Key Findings:**
+   * Web Server: Apache/2.2.6 (Win32)
+   * OpenSSL Version: 0.9.8e (Outdated – potential exploit path)
+   * Shows SSL Certificate details & server headers.
+
 ---
 
 ### 2.3 Full Port Scan
@@ -77,6 +87,10 @@ Scans **all 65535 ports** to ensure nothing is missed.
   <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/service_version_scan.png" width="80%">
 </p>
 
+**Key Findings:**
+   * Confirmed only 80, 443, 8080 are open.
+   * No additional high-risk open ports found.
+     
 ---
 
 ### 2.4 OS Detection
@@ -92,6 +106,11 @@ Tries to guess operating system of the host.
   <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/os_scan.png" width="80%">
 </p>
 
+**Key Findings:**
+   * OS Guess: Windows 7 / Windows Server 2008 (Win32)
+   * Useful for choosing correct exploits & payloads later.
+     
+
 ---
 
 ## Step 3: HTTP Enumeration (Directory Brute Force)
@@ -99,22 +118,21 @@ Tries to guess operating system of the host.
 ### Command:
 
 ```bash
-dirb https://zero.webappsecurity.com /usr/share/wordlists/dirb/common.txt -o scans/gobuster_dirs.txt
+dirb https://zero.webappsecurity.com /usr/share/wordlists/dirb/small.txt -o scans/gobuster_dirb.txt
 ```
 
 **What it does :**
 Brute-forces common hidden directories and files.
+**Key Findings:**
+   * /cgi-bin/ — Exists (403 Forbidden). This directory may contain server-side scripts (CGI programs).
+   * /con — Exists (403 Forbidden). Access is restricted.
+   * Even though access is denied (403), this still reveals potential attack surface for later testing.
 
-**Interesting Directories Found:**
-
-* `/login.html`
-* `/bank/`
-* `/forgot-password.html`
 
 **Screenshot:**
 
 <p align="center">
-  <img src="screenshots/gobuster.png" width="80%">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/dirb.png" width="80%">
 </p>
 
 ---
@@ -131,8 +149,15 @@ Identifies web technologies (server, framework, CMS, language).
 **Screenshot:**
 
 <p align="center">
-  <img src="" width="80%">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/whatweb.png" width="80%">
 </p>
+
+**Key Findings:**
+    * Web Server: Apache/2.2.6 (Win32)
+    * Modules: mod_ssl/2.2.6, mod_jk/1.2.40
+    * OpenSSL Version: 0.9.8e (outdated)
+    * OS: Windows (32-bit)
+This information helps in identifying potential exploits for outdated versions.
 
 ---
 
@@ -147,30 +172,28 @@ Finds common misconfigurations and security headers issues.
 **Screenshot:**
 
 <p align="center">
-  <img src="screenshots/nikto.png" width="80%">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/nikto_result.png" width="80%">
 </p>
 
----
+**Key Findings:**
 
-## Conclusion
-
-Through this assessment, I successfully:
-
-* Confirmed that the target is alive.
-* Found open ports (22, 80, 443).
-* Identified the web server and possible OS.
-* Discovered multiple directories like `/bank`, `/login.html`.
-* Learned about missing security headers and potential risks.
-
-This report can help security teams prioritize hardening web server configuration and securing sensitive endpoints.
+   * ETag leaks file info → helps attackers fingerprint files
+   * No X-Frame-Options → site vulnerable to clickjacking
+   * No HSTS → HTTPS can be downgraded (less secure)
+   * No X-Content-Type-Options → browser may misread files (possible XSS)
 
 ---
 
-## Deliverables
+## Conclusion / Summary
 
-* Raw scan outputs are stored in `/scans`
-* Screenshots are stored in `/screenshots`
-* Final summarized report is available at `/reports/final_report.md`
+From this reconnaissance, I discovered:
 
-```
+* Target is alive and hosted on AWS.
+* Open ports: **80, 443, 8080** — main web entry points.
+* Running **Apache/2.2.6 (Win32)** with outdated **OpenSSL 0.9.8e** — possible vulnerabilities.
+* OS seems to be Windows 7 / 2008 Server — helps in choosing payloads for exploitation.
+* Discovered `/cgi-bin/` and `/con` directories — useful for manual testing later.
+* Security misconfigurations found: missing headers (X-Frame-Options, HSTS, X-Content-Type-Options) → risk of clickjacking, HTTPS downgrade, and XSS.
 
+**Takeaway:**
+This recon gives a clear picture of attack surface (ports, services, directories, vulnerabilities). These findings can guide penetration testing & exploitation in next phases.
