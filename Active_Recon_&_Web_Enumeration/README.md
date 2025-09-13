@@ -19,10 +19,6 @@ The goal was to identify if the target is alive, find open ports, detect running
 ```bash
 nmap -sn zero.webappsecurity.com 
 ````
-
-**What it does :**
-Checks if the target is alive using ping/ARP (no port scan).
-
 **Finding:**  Host is alive → Target is reachable (IP: 54.82.22.214).
 
 **Screenshot:**
@@ -40,9 +36,6 @@ Checks if the target is alive using ping/ARP (no port scan).
 ```bash
 nmap -sS zero.webappsecurity.com 
 ```
-
-Finds open TCP ports quickly using SYN packets.
-
 **Key Findings:**
    * Open Ports: 80 (HTTP), 443 (HTTPS), 8080 (HTTP-Proxy)
 
@@ -80,7 +73,6 @@ Detects services, versions, and runs default NSE scripts on 22, 80, 443.
 nmap -sV -p- zero.webappsecurity.com 
 ```
 
-Scans **all 65535 ports** to ensure nothing is missed.
 **Screenshot:**
 
 <p align="center">
@@ -89,8 +81,7 @@ Scans **all 65535 ports** to ensure nothing is missed.
 
 **Key Findings:**
    * Confirmed only 80, 443, 8080 are open.
-   * No additional high-risk open ports found.
-     
+   * No additional high-risk open ports found.     
 ---
 
 ### 2.4 OS Detection
@@ -98,8 +89,6 @@ Scans **all 65535 ports** to ensure nothing is missed.
 ```bash
 nmap -O --osscan-guess zero.webappsecurity.com
 ```
-
-Tries to guess operating system of the host.
 **Screenshot:**
 
 <p align="center">
@@ -120,15 +109,10 @@ Tries to guess operating system of the host.
 ```bash
 dirb https://zero.webappsecurity.com /usr/share/wordlists/dirb/small.txt -o gobuster_dirb.txt
 ```
-
-**What it does :**
-Brute-forces common hidden directories and files.
-
 **Key Findings:**
    * /cgi-bin/ — Exists (403 Forbidden). This directory may contain server-side scripts (CGI programs).
    * /con — Exists (403 Forbidden). Access is restricted.
    * Even though access is denied (403), this still reveals potential attack surface for later testing.
-
 
 **Screenshot:**
 
