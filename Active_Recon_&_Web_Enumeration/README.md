@@ -1,4 +1,3 @@
-
 # Active Recon & Web Enumeration — ZeroBank (zero.webappsecurity.com)
 
 ## Overview
@@ -28,7 +27,7 @@ Checks if the target is alive using ping/ARP (no port scan).
 **Screenshot:**
 
 <p align="center">
-  <img src="" width="80%">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/host_discovery.png" width="80%">
 </p>
 
 ---
@@ -45,7 +44,7 @@ Finds open TCP ports quickly using SYN packets.
 **Screenshot:**
 
 <p align="center">
-  <img src="" width="80%">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/TCP_syn_scan.png" width="80%">
 </p>
 
 ---
@@ -60,7 +59,7 @@ Detects services, versions, and runs default NSE scripts on 22, 80, 443.
 **Screenshot:**
 
 <p align="center">
-  <img src="" width="80%">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/service_version_scan.png" width="80%">
 </p>
 
 ---
@@ -75,7 +74,7 @@ Scans **all 65535 ports** to ensure nothing is missed.
 **Screenshot:**
 
 <p align="center">
-  <img src="" width="80%">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/service_version_scan.png" width="80%">
 </p>
 
 ---
@@ -90,7 +89,7 @@ Tries to guess operating system of the host.
 **Screenshot:**
 
 <p align="center">
-  <img src="screenshots/os_detection.png" width="80%">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/os_scan.png" width="80%">
 </p>
 
 ---
