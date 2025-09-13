@@ -153,10 +153,10 @@ Identifies web technologies (server, framework, CMS, language).
 </p>
 
 **Key Findings:**
-    * Web Server: Apache/2.2.6 (Win32)
-    * Modules: mod_ssl/2.2.6, mod_jk/1.2.40
-    * OpenSSL Version: 0.9.8e (outdated)
-    * OS: Windows (32-bit)
+    * Web Server: Apache/2.2.6 (Win32) <br>
+    * Modules: mod_ssl/2.2.6, mod_jk/1.2.40 <br>
+    * OpenSSL Version: 0.9.8e (outdated) <br>
+    * OS: Windows (32-bit) <br>
 This information helps in identifying potential exploits for outdated versions.
 
 ---
