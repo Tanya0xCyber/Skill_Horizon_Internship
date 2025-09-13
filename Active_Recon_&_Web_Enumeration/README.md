@@ -64,7 +64,7 @@ Detects services, versions, and runs default NSE scripts on 22, 80, 443.
 **Screenshot:**
 
 <p align="center">
-  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/service_version_scan.png" width="80%">
+  <img src="https://github.com/Tanya0xCyber/Skill_Horizon_Internship/blob/main/Active_Recon_%26_Web_Enumeration/Screenshots/service_version_scan.png" width="80%"
 </p>
 
 **Key Findings:**
@@ -77,7 +77,7 @@ Detects services, versions, and runs default NSE scripts on 22, 80, 443.
 ### 2.3 Full Port Scan
 
 ```bash
-nmap -sV -p- zero.webappsecurity.com -oN scans/full_port_scan.txt
+nmap -sV -p- zero.webappsecurity.com 
 ```
 
 Scans **all 65535 ports** to ensure nothing is missed.
@@ -96,7 +96,7 @@ Scans **all 65535 ports** to ensure nothing is missed.
 ### 2.4 OS Detection
 
 ```bash
-nmap -O --osscan-guess zero.webappsecurity.com -oN scans/os_detection.txt
+nmap -O --osscan-guess zero.webappsecurity.com
 ```
 
 Tries to guess operating system of the host.
@@ -118,11 +118,12 @@ Tries to guess operating system of the host.
 ### Command:
 
 ```bash
-dirb https://zero.webappsecurity.com /usr/share/wordlists/dirb/small.txt -o scans/gobuster_dirb.txt
+dirb https://zero.webappsecurity.com /usr/share/wordlists/dirb/small.txt -o gobuster_dirb.txt
 ```
 
 **What it does :**
 Brute-forces common hidden directories and files.
+
 **Key Findings:**
    * /cgi-bin/ — Exists (403 Forbidden). This directory may contain server-side scripts (CGI programs).
    * /con — Exists (403 Forbidden). Access is restricted.
@@ -142,7 +143,7 @@ Brute-forces common hidden directories and files.
 ### 4.1 WhatWeb
 
 ```bash
-whatweb https://zero.webappsecurity.com > scans/whatweb.txt
+whatweb https://zero.webappsecurity.com > whatweb.txt
 ```
 
 Identifies web technologies (server, framework, CMS, language).
@@ -164,7 +165,7 @@ This information helps in identifying potential exploits for outdated versions.
 ### 4.2 Nikto
 
 ```bash
-nikto -h https://zero.webappsecurity.com -o scans/nikto_results.txt
+nikto -h https://zero.webappsecurity.com -o nikto_results.txt
 ```
 
 Finds common misconfigurations and security headers issues.
