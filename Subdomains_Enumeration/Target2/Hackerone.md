@@ -93,6 +93,3 @@ cat alterx_permutations.txt | dnsx -o live_subdomains.txt
 
 ---
 
-
-
-Would you like me to rewrite **Target 1** in **this exact style** (tool → output file → screenshot → notes) so that both targets match perfectly? This will make your repo look like a polished case study rather than just an assignment.
