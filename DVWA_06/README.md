@@ -120,5 +120,3 @@ Use automated tools to quickly confirm vulnerabilities:
 * Documenting findings clearly helps in **learning, reporting, and improving web security**.
 * Overall, this assignment builds confidence in **manual testing and light automation** techniques without risking real systems.
 
-
-Do you want me to make that version too?
