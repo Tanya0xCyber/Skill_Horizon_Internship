@@ -26,7 +26,7 @@ It is critical because it can lead to **data breaches, unauthorized access, and 
 4. **Observations / Results:**  
    - All user records were displayed instead of one.  
    - Shows that **Low security does not validate or filter inputs**.  
-   - Classic SQL Injection vulnerability confirmed.
+   
 
 ---
 
@@ -61,11 +61,6 @@ It is critical because it can lead to **data breaches, unauthorized access, and 
 
 ---
 
-## Findings
-- SQL Injection exists at all levels in DVWA, but **security hardening reduces its effectiveness**.  
-- Low: Direct SQLi works easily.  
-- Medium: Basic input filtering present, bypassable with UNION queries.  
-- High: Input via session variables; attack more difficult, but advanced payloads can succeed.  
 
 ## Impact Analysis
 - Unauthorized access to sensitive user data.  
@@ -76,8 +71,3 @@ It is critical because it can lead to **data breaches, unauthorized access, and 
 - Use **parameterized queries** / prepared statements.  
 - Validate and sanitize all user inputs.  
 - Limit database privileges for application accounts.  
-
-## Conclusion
-- SQL Injection demonstrates how **unvalidated inputs** can compromise databases.  
-- Increasing security levels shows **how protections can mitigate, but not always fully prevent, attacks**.  
-- Practicing SQLi in DVWA reinforces **awareness of input validation, query handling, and session security**.
