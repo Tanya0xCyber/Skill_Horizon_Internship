@@ -12,7 +12,7 @@
 
 
 ```
-DVWA-Assignment/
+DVWA_06/
 │
 ├── README.md               # Clean overview (like we just made)
 ├── vulnerabilities/
@@ -20,10 +20,6 @@ DVWA-Assignment/
 │   ├── xss.md              # Detailed writeup for XSS
 │   ├── command-injection.md
 │   ├── file-upload.md
-│   ├── idor.md
-│   ├── misconfigurations.md
-│   ├── sensitive-info.md
-│   └── session-management.md
 │
 └── screenshots/
     ├── sql-injection/
@@ -101,22 +97,8 @@ Use automated tools to quickly confirm vulnerabilities:
 
 ---
 
-### **5. Reporting & Documentation**
 
-* For each vulnerability, include:
-
-  * **Screenshot of test**
-  * **Explanation of findings**
-  * **Potential impact**
-  * **Remediation suggestions**
-
-
----
-
-### **6. Conclusion**
+### . Conclusion**
 
 * DVWA provides a **safe environment** to practice web vulnerability testing.
 * Testing across different security levels shows **how misconfigurations and weak coding can be exploited**.
-* Documenting findings clearly helps in **learning, reporting, and improving web security**.
-* Overall, this assignment builds confidence in **manual testing and light automation** techniques without risking real systems.
-
