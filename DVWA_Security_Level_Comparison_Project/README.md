@@ -8,31 +8,7 @@
 
 ---
 
-## **Folder Structure**
 
-```
-
-DVWA-Security-Levels/
-│
-├── README.md
-├── comparison/
-│   ├── xss.md
-│   └── file-upload.md
-│
-├── screenshots/
-│   ├── xss/
-│   │   ├── low.png
-│   │   ├── medium.png
-│   │   ├── high.png
-│   └── file-upload/
-│       ├── low.png
-│       ├── medium.png
-│       ├── high.png
-
-
-```
-
----
 
 ## **Quick Setup**
 1. Start DVWA on Kali and login (`admin` / `password` by default).  
