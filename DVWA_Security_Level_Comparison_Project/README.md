@@ -3,7 +3,6 @@
 
 ## **Objective**
 - Compare how DVWA handles **Cross‑Site Scripting (XSS)** and **Unrestricted File Upload** across security levels (Low → Medium → High → Impossible).  
-- Capture reproducible evidence (screenshots + raw outputs).  
 - Produce concise findings and remediation suggestions for each vulnerability.
 
 ---
@@ -12,7 +11,7 @@
 
 ## **Quick Setup**
 1. Start DVWA on Kali and login (`admin` / `password` by default).  
-2. Ensure folders above exist (`screenshots/`, `raw-output/`, `comparison/`).
+2. Ensure folders above exist (`comparison/`).
 
 ---
 
